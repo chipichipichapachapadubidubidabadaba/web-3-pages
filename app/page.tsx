@@ -213,7 +213,7 @@ function Home() {
       </form>
       <br />
       <h1 className="rickroll big">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <a href="https://www.tiktok.com/@modern.home365/video/7367379584578407726?lang=en">
           Take me to a mental hospital
         </a>
       </h1>
