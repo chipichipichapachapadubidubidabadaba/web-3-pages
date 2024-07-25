@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
+import { redirect } from "next/navigation";
 
 function Home() {
   const [Ax, setAx] = useState(0);
@@ -71,154 +72,172 @@ function Home() {
       var ans = Math.sqrt(A * A + B * B);
       alert(`c = ${ans}`);
     }
-  };
-  return (
-    <main
-      className="flex items-center justify-center h-screen flex-col"
-      style={{ backgroundColor: "#55AAFF" }}
-    >
-      <title>Pythagoras Theorem!</title>
-      <h1 className="big">Pythagoras Theorem!</h1>
-      <Image
-        alt="error"
-        src="/pythagoras-removebg-preview.png"
-        height={270}
-        width={360}
-      />
-      <br />
-      <h1 className="medium">
-        Enter the x,y coordinates of the points A, B and C and it will be
-        calculated if this is an right-angled triangle!
-      </h1>
-      <br />
-      <form onSubmit={threepoints}>
-        <div className="flex flex-row">
+
+    const trolling = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      alert(`clicked`);
+      const index = Math.floor(Math.random() * 3);
+      if (index == 0) {
+        redirect(`'https://www.youtube.com/watch?v=dQw4w9WgXcQ'`);
+      } else if (index == 1) {
+        redirect(
+          `'https://www.tiktok.com/@modern.home365/video/7367379584578407726?lang=en'`
+        );
+      } else if (index == 2) {
+        redirect(`'https://www.youtube.com/watch?v=6R9RnIawSvk'`);
+      }
+    };
+
+    return (
+      <main
+        className="flex items-center justify-center h-screen flex-col"
+        style={{ backgroundColor: "#55AAFF" }}
+      >
+        <title>Pythagoras Theorem!</title>
+        <h1 className="big">Pythagoras Theorem!</h1>
+        <Image
+          alt="error"
+          src="/pythagoras-removebg-preview.png"
+          height={270}
+          width={360}
+        />
+        <br />
+        <h1 className="medium">
+          Enter the x,y coordinates of the points A, B and C and it will be
+          calculated if this is an right-angled triangle!
+        </h1>
+        <br />
+        <form onSubmit={threepoints}>
+          <div className="flex flex-row">
+            <label>
+              <input
+                type="number"
+                placeholder="A x"
+                value={Ax}
+                onChange={(e) => setAx(Number(e.target.value))}
+              />
+              <input
+                type="number"
+                placeholder="A y"
+                value={Ay}
+                onChange={(e) => setAy(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div className="flex flex-row">
+            <label>
+              <input
+                type="number"
+                placeholder="B x"
+                value={Bx}
+                onChange={(e) => setBx(Number(e.target.value))}
+              />
+              <input
+                type="number"
+                placeholder="B y"
+                value={By}
+                onChange={(e) => setBy(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div className="flex flex-row">
+            <label>
+              <input
+                type="number"
+                placeholder="C x"
+                value={Cx}
+                onChange={(e) => setCx(Number(e.target.value))}
+              />
+              <input
+                type="number"
+                placeholder="C y"
+                value={Cy}
+                onChange={(e) => setCy(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div className="flex flex-col">
+            <br />
+            <input type="submit" value="Calculate" className="button" />
+          </div>
+        </form>
+        <br />
+        <h1 className="medium">
+          Alternatively, you can enter the length of the 3 sides
+        </h1>
+        <br />
+        <form onSubmit={threesides}>
           <label>
-            <input
-              type="number"
-              placeholder="A x"
-              value={Ax}
-              onChange={(e) => setAx(Number(e.target.value))}
-            />
-            <input
-              type="number"
-              placeholder="A y"
-              value={Ay}
-              onChange={(e) => setAy(Number(e.target.value))}
-            />
+            <div className="flex flex-row">
+              <input
+                type="number"
+                placeholder="a"
+                value={a}
+                onChange={(e) => seta(Number(e.target.value))}
+              />
+              <input
+                type="number"
+                placeholder="b"
+                value={b}
+                onChange={(e) => setb(Number(e.target.value))}
+              />
+              <input
+                type="number"
+                placeholder="c"
+                value={c}
+                onChange={(e) => setc(Number(e.target.value))}
+              />
+            </div>
           </label>
-        </div>
-        <div className="flex flex-row">
-          <label>
-            <input
-              type="number"
-              placeholder="B x"
-              value={Bx}
-              onChange={(e) => setBx(Number(e.target.value))}
-            />
-            <input
-              type="number"
-              placeholder="B y"
-              value={By}
-              onChange={(e) => setBy(Number(e.target.value))}
-            />
-          </label>
-        </div>
-        <div className="flex flex-row">
-          <label>
-            <input
-              type="number"
-              placeholder="C x"
-              value={Cx}
-              onChange={(e) => setCx(Number(e.target.value))}
-            />
-            <input
-              type="number"
-              placeholder="C y"
-              value={Cy}
-              onChange={(e) => setCy(Number(e.target.value))}
-            />
-          </label>
-        </div>
-        <div className="flex flex-col">
-          <br />
-          <input type="submit" value="Calculate" className="button" />
-        </div>
-      </form>
-      <br />
-      <h1 className="medium">
-        Alternatively, you can enter the length of the 3 sides
-      </h1>
-      <br />
-      <form onSubmit={threesides}>
-        <label>
+          <div className="flex flex-col">
+            <br />
+            <input type="submit" value="Calculate" className="button" />
+          </div>
+        </form>
+        <br />
+        <h1 className="medium">
+          You can enter the length of 2 sides and the length of the third side
+          will be calculated. (leave the side you want to be calculated to 0s
+          blank)
+        </h1>
+        <br />
+        <form onSubmit={findside}>
           <div className="flex flex-row">
             <input
               type="number"
               placeholder="a"
-              value={a}
-              onChange={(e) => seta(Number(e.target.value))}
+              value={A}
+              onChange={(e) => setA(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="b"
-              value={b}
-              onChange={(e) => setb(Number(e.target.value))}
+              value={B}
+              onChange={(e) => setB(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="c"
-              value={c}
-              onChange={(e) => setc(Number(e.target.value))}
+              value={C}
+              onChange={(e) => setC(Number(e.target.value))}
             />
           </div>
-        </label>
-        <div className="flex flex-col">
-          <br />
-          <input type="submit" value="Calculate" className="button" />
-        </div>
-      </form>
-      <br />
-      <h1 className="medium">
-        You can enter the length of 2 sides and the length of the third side
-        will be calculated. (leave the side you want to be calculated to be
-        blank)
-      </h1>
-      <br />
-      <form onSubmit={findside}>
-        <div className="flex flex-row">
+          <div className="flex flex-col">
+            <br />
+            <input type="submit" value="Calculate" className="button" />
+          </div>
+        </form>
+        <br />
+        <form onSubmit={trolling}>
           <input
-            type="number"
-            placeholder="a"
-            value={A}
-            onChange={(e) => setA(Number(e.target.value))}
+            type="submit"
+            value="Take me to a mental hospital"
+            className="troll"
           />
-          <input
-            type="number"
-            placeholder="b"
-            value={B}
-            onChange={(e) => setB(Number(e.target.value))}
-          />
-          <input
-            type="number"
-            placeholder="c"
-            value={C}
-            onChange={(e) => setC(Number(e.target.value))}
-          />
-        </div>
-        <div className="flex flex-col">
-          <br />
-          <input type="submit" value="Calculate" className="button" />
-        </div>
-      </form>
-      <br />
-      <h1 className="rickroll big">
-        <a href="https://www.tiktok.com/@modern.home365/video/7367379584578407726?lang=en">
-          Take me to a mental hospital
-        </a>
-      </h1>
-    </main>
-  );
+        </form>
+      </main>
+    );
+  };
 }
 
 export default Home;
