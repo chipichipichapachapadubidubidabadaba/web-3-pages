@@ -73,7 +73,7 @@ function Home() {
       alert(`c = ${ans}`);
     }
 
-    const trolling = (event: React.FormEvent<HTMLFormElement>) => {
+    const troll = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       alert(`clicked`);
       const index = Math.floor(Math.random() * 3);
@@ -228,7 +228,7 @@ function Home() {
           </div>
         </form>
         <br />
-        <form onSubmit={trolling}>
+        <form onSubmit={troll}>
           <input
             type="submit"
             value="Take me to a mental hospital"
