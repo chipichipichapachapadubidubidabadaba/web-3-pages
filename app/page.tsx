@@ -4,13 +4,13 @@ import React from "react";
 import { useState } from "react";
 
 function Home() {
-  const [Ax, setAx] = useState("");
-  const [Ay, setAy] = useState("");
-  const [Bx, setBx] = useState("");
-  const [By, setBy] = useState("");
-  const [Cx, setCx] = useState("");
-  const [Cy, setCy] = useState("");
-  const threepoints = (event: Event) => {
+  const [Ax, setAx] = useState(0);
+  const [Ay, setAy] = useState(0);
+  const [Bx, setBx] = useState(0);
+  const [By, setBy] = useState(0);
+  const [Cx, setCx] = useState(0);
+  const [Cy, setCy] = useState(0);
+  const threepoints = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     var AB = (Ax - Bx) * (Ax - Bx) + (Ay - By) * (Ay - By);
     var BC = (Cx - Bx) * (Cx - Bx) + (Cy - By) * (Cy - By);
@@ -21,10 +21,10 @@ function Home() {
       alert(`It not a right-angled triangle!`);
     }
   };
-  const [a, seta] = useState("");
-  const [b, setb] = useState("");
-  const [c, setc] = useState("");
-  const threesides = (event: Event) => {
+  const [a, seta] = useState(0);
+  const [b, setb] = useState(0);
+  const [c, setc] = useState(0);
+  const threesides = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (a > 0 && b > 0 && c > 0) {
       if (a + b > c && a + c > b && c + b > a) {
@@ -56,10 +56,10 @@ function Home() {
       );
     }
   };
-  const [A, setA] = useState("");
-  const [B, setB] = useState("");
-  const [C, setC] = useState("");
-  const findside = (event: Event) => {
+  const [A, setA] = useState(0);
+  const [B, setB] = useState(0);
+  const [C, setC] = useState(0);
+  const findside = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (A == 0) {
       var ans = Math.sqrt(C * C - B * B);
@@ -98,13 +98,13 @@ function Home() {
               type="number"
               placeholder="A x"
               value={Ax}
-              onChange={(e) => setAx(e.target.value)}
+              onChange={(e) => setAx(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="A y"
               value={Ay}
-              onChange={(e) => setAy(e.target.value)}
+              onChange={(e) => setAy(Number(e.target.value))}
             />
           </label>
         </div>
@@ -114,13 +114,13 @@ function Home() {
               type="number"
               placeholder="B x"
               value={Bx}
-              onChange={(e) => setBx(e.target.value)}
+              onChange={(e) => setBx(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="B y"
               value={By}
-              onChange={(e) => setBy(e.target.value)}
+              onChange={(e) => setBy(Number(e.target.value))}
             />
           </label>
         </div>
@@ -130,13 +130,13 @@ function Home() {
               type="number"
               placeholder="C x"
               value={Cx}
-              onChange={(e) => setCx(e.target.value)}
+              onChange={(e) => setCx(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="C y"
               value={Cy}
-              onChange={(e) => setCy(e.target.value)}
+              onChange={(e) => setCy(Number(e.target.value))}
             />
           </label>
         </div>
@@ -157,19 +157,19 @@ function Home() {
               type="number"
               placeholder="a"
               value={a}
-              onChange={(e) => seta(e.target.value)}
+              onChange={(e) => seta(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="b"
               value={b}
-              onChange={(e) => setb(e.target.value)}
+              onChange={(e) => setb(Number(e.target.value))}
             />
             <input
               type="number"
               placeholder="c"
               value={c}
-              onChange={(e) => setc(e.target.value)}
+              onChange={(e) => setc(Number(e.target.value))}
             />
           </div>
         </label>
@@ -181,7 +181,8 @@ function Home() {
       <br />
       <h1 className="medium">
         You can enter the length of 2 sides and the length of the third side
-        will be calculated. (leave the side you want to be calculated to be blank)
+        will be calculated. (leave the side you want to be calculated to be
+        blank)
       </h1>
       <br />
       <form onSubmit={findside}>
@@ -190,19 +191,19 @@ function Home() {
             type="number"
             placeholder="a"
             value={A}
-            onChange={(e) => setA(e.target.value)}
+            onChange={(e) => setA(Number(e.target.value))}
           />
           <input
             type="number"
             placeholder="b"
             value={B}
-            onChange={(e) => setB(e.target.value)}
+            onChange={(e) => setB(Number(e.target.value))}
           />
           <input
             type="number"
             placeholder="c"
             value={C}
-            onChange={(e) => setC(e.target.value)}
+            onChange={(e) => setC(Number(e.target.value))}
           />
         </div>
         <div className="flex flex-col">
@@ -211,7 +212,11 @@ function Home() {
         </div>
       </form>
       <br />
-      <h1 className="rickroll big"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Take me to a mental hospital</a></h1>
+      <h1 className="rickroll big">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+          Take me to a mental hospital
+        </a>
+      </h1>
     </main>
   );
 }
