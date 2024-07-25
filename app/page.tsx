@@ -10,7 +10,7 @@ function Home() {
   const [By, setBy] = useState("");
   const [Cx, setCx] = useState("");
   const [Cy, setCy] = useState("");
-  const threepoints = (event) => {
+  const threepoints = (event: Event) => {
     event.preventDefault();
     var AB = (Ax - Bx) * (Ax - Bx) + (Ay - By) * (Ay - By);
     var BC = (Cx - Bx) * (Cx - Bx) + (Cy - By) * (Cy - By);
@@ -24,7 +24,7 @@ function Home() {
   const [a, seta] = useState("");
   const [b, setb] = useState("");
   const [c, setc] = useState("");
-  const threesides = (event) => {
+  const threesides = (event: Event) => {
     event.preventDefault();
     if (a > 0 && b > 0 && c > 0) {
       if (a + b > c && a + c > b && c + b > a) {
@@ -46,7 +46,7 @@ function Home() {
       alert(
         `The side of a triangle cannot be 0, if you need to go to a mental hospital, please press the button "Take me to a mental hospital"`
       );
-    } else if ((a < 0 || b < 0 || c < 0) && a != 0 && a != 0 && a != 0) {
+    } else if ((a < 0 || b < 0 || c < 0) && a != 0 && b != 0 && c != 0) {
       alert(
         `The side of a triangle cannot be negative, if you need to go to a mental hospital, please press the button "Take me to a mental hospital"`
       );
@@ -59,7 +59,7 @@ function Home() {
   const [A, setA] = useState("");
   const [B, setB] = useState("");
   const [C, setC] = useState("");
-  const findside = (event) => {
+  const findside = (event: Event) => {
     event.preventDefault();
     if (A == 0) {
       var ans = Math.sqrt(C * C - B * B);
