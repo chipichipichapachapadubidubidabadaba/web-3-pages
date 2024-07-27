@@ -13,13 +13,20 @@ function Home() {
   const [Cy, setCy] = useState(0);
   const threepoints = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     var AB = (Ax - Bx) * (Ax - Bx) + (Ay - By) * (Ay - By);
     var BC = (Cx - Bx) * (Cx - Bx) + (Cy - By) * (Cy - By);
     var AC = (Ax - Cx) * (Ax - Cx) + (Ay - Cy) * (Ay - Cy);
-    if (AB == BC + AC || BC == AB + AC || AC == AB + BC) {
-      alert(`It is a right-angled triangle!`);
+    if (AB > 0 && AB > 0 && AB > 0) {
+      if (AB == BC + AC || BC == AB + AC || AC == AB + BC) {
+        alert(`It is a right-angled triangle!`);
+      } else {
+        alert(`It not a right-angled triangle!`);
+      }
     } else {
-      alert(`It not a right-angled triangle!`);
+      alert(
+        `The side of a triangle cannot be 0, if you need to go to a mental hospital, please press the button "Take me to a mental hospital"`
+      );
     }
   };
   const [a, seta] = useState(0);
@@ -63,13 +70,13 @@ function Home() {
   const findside = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (A == 0 && B!=0 && B!=0) {
+    if (A == 0 && B != 0 && B != 0 && C != 0) {
       var ans = Math.sqrt(C * C - B * B);
       alert(`a = ${ans}`);
-    } else if (B == 0 && B!=0 && B!=0) {
+    } else if (B == 0 && A != 0 && C != 0) {
       var ans = Math.sqrt(C * C - A * A);
       alert(`b = ${ans}`);
-    } else if (C == 0 && B!=0) {
+    } else if (C == 0 && A != 0 && B != 0) {
       var ans = Math.sqrt(A * A + B * B);
       alert(`c = ${ans}`);
     }
