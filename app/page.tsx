@@ -92,6 +92,14 @@ function Home() {
       href: "https://www.youtube.com/watch?v=sYmOR_yTPv4",
       label: "Skibidi toilet",
     },
+    {
+      href: "https://www.youtube.com/watch?v=Rpkjb4Tx844",
+      label: "Tyx",
+    },
+    {
+      href: "https://www.imh.com.sg/Pages/default.aspx",
+      label: "Mental Hospital",
+    },
   ];
 
   const router = useRouter();
@@ -103,8 +111,7 @@ function Home() {
 
   return (
     <main
-      className="flex items-center justify-center h-screen flex-col"
-      style={{ backgroundColor: "#55AAFF" }}
+      className="flex items-center justify-center h-screen flex-col bg"
     >
       <title>Pythagoras Theorem!</title>
       <h1 className="big">Pythagoras Theorem!</h1>

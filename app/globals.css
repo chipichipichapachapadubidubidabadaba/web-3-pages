@@ -30,3 +30,8 @@ input {
   text-align: center;
   border-width: 10px;
 }
+.bg {
+  background-color: #55aaff;
+  background-size:cover ;
+  background-repeat: no-repeat;
+}
